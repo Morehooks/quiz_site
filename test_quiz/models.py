@@ -14,3 +14,5 @@ class Response(models.Model):
     response_text = models.CharField(max_length=255)
     response_value = models.IntegerField()
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
+
+
