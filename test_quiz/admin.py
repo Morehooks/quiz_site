@@ -26,7 +26,7 @@ class QuestionInline(admin.StackedInline):
 class SubPageAdmin(admin.ModelAdmin):
     formfield_overrides = get_form_overrides()
     fieldsets = [
-        (None, {'fields': ['sub_page_header', 'sub_page_seq', 'page']}),
+        (None, {'fields': ['sub_page_header', 'sub_page_seq', 'section', 'page']}),
     ]
     inlines = [QuestionInline, ResponseInline]
 

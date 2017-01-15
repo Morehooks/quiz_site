@@ -16,6 +16,9 @@ class Page(models.Model):
     section = models.ForeignKey('Section', on_delete=models.CASCADE)
     page_seq = models.IntegerField(default=100)
 
+    def __str__(self):
+        return str(self.page_seq) + ': ' + self.page_header[:100]
+
 
 class SubPage(models.Model):
     initial_seq = 0
@@ -23,6 +26,9 @@ class SubPage(models.Model):
     page = models.ForeignKey('Page', on_delete=models.CASCADE)
     section = models.ForeignKey('Section', on_delete=models.CASCADE)
     sub_page_seq = models.IntegerField(default=100)
+
+    def __str__(self):
+        return str(self.sub_page_seq) + ': ' + self.sub_page_header[:100]
 
 
 class Question(models.Model):
