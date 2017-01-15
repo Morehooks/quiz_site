@@ -4,7 +4,7 @@ from django.db import models
 class Section(models.Model):
     initial_seq = 0
     section_text = models.CharField(max_length=255)
-    page_seq = models.IntegerField(default=100)
+    section_seq = models.IntegerField(default=100)
 
     def __str__(self):
         return str(self.id) + ': ' + self.section_text
