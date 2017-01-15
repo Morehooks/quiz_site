@@ -21,6 +21,7 @@ class SubPage(models.Model):
     initial_seq = 0
     sub_page_header = models.TextField(null=True, blank=True)
     page = models.ForeignKey('Page', on_delete=models.CASCADE)
+    section = models.ForeignKey('Section', on_delete=models.CASCADE)
     sub_page_seq = models.IntegerField(default=100)
 
 
@@ -38,10 +39,12 @@ class Question(models.Model):
     QUESTION_TYPE_CHOICES = (
         (SINGLE_QUESTION, 'Single Question'),
         (MULTI_CHOICE_QUESTION, 'Multi-Choice Question'),
-        (TEXT_QUESTION, 'TextQuestion'),
+        (TEXT_QUESTION, 'Text Question'),
     )
     question_type = models.CharField(max_length=255, choices=QUESTION_TYPE_CHOICES, default=SINGLE_QUESTION)
+    section = models.ForeignKey('Section', on_delete=models.CASCADE)
     sub_page = models.ForeignKey('SubPage', on_delete=models.CASCADE)
+    page = models.ForeignKey('Page', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.question_text
@@ -52,6 +55,9 @@ class Response(models.Model):
     response_text = models.CharField(max_length=255)
     response_value = models.IntegerField()
     response_seq = models.IntegerField(default=100)
+    section = models.ForeignKey('Section', on_delete=models.CASCADE)
+    page = models.ForeignKey('Page', on_delete=models.CASCADE)
+    sub_page = models.ForeignKey('SubPage', on_delete=models.CASCADE)
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
 
     def __str__(self):
