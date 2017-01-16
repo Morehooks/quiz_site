@@ -1,4 +1,4 @@
-from django.forms import TextInput, Textarea
+from django.forms import Textarea
 from django.db import models
 from django.contrib import admin
 from .models import Section, Page, SubPage, Question, Response
