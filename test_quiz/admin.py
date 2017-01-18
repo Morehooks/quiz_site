@@ -28,7 +28,7 @@ class SubPageAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['sub_page_header', 'sub_page_seq', 'section', 'page']}),
     ]
-    inlines = [QuestionInline, ResponseInline]
+    inlines = [QuestionInline]
 
 
 class QuestionAdmin(admin.ModelAdmin):
