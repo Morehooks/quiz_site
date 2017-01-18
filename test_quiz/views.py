@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from django.http import Http404
+from .models import Section
 
-# Create your views here.
+
+def index(request):
+    try:
+        sections = Section.objects.all()
+    except Section.DoesNotExist:
+        raise Http404("Poll does not exist")
+    return render(request, 'section_test.html', {'section': sections})

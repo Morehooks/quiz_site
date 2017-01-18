@@ -74,7 +74,7 @@ ROOT_URLCONF = 'quiz_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(os.getcwd(), 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
